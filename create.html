@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<title>Create Puzzle</title>
+<link rel="stylesheet" href="./styling.css">
+<link rel="stylesheet" type="text/css" href="create.css" />
+<link rel="icon" href="./2w.png">
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css
+" rel="stylesheet">
+</head>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<div id="header">
+    <a href="leaderboard" class="headers">
+        <img src="./leaderboard.png" alt="Leaderboard" height="90" width="90">
+    </a>
+    <a href="./" class="headers">
+        <img src="./home.png" alt="Home" height="90" width="90">
+    </a>
+    <a href="./create" class="headers create" id="create">
+        <img src="./create.png" alt="Create" height="90" width="90">
+    </a>
+    <div id="discord-div">
+        <a id="login"
+            href="https://discord.com/api/oauth2/authorize?client_id=758498275677437962&amp;redirect_uri=https%3A%2F%2Ftwowi.de%2F&amp;response_type=token&amp;scope=identify">
+            <div id="discord">
+                <img src="./discord.png" height="50" width="50" alt="Leaderboard" id="icon" class="headers">
+                <div id="info" class="headers">
+                    Connect
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <a href="./rush">
+        <div class="rushHeader">
+            <img src="./rush.png" alt="Rush" height="50" style="vertical-align: middle" width="50" />
+            Rush Mode
+        </div>
+    </a>
+</div>
+<div class="create_puzzle">
+    <h1 class="title">
+        Create Puzzle
+    </h1>
+    <div class = "flex-grid">
+        <div class ="left"> 
+        <label for="name">Name:</label>
+            <input type="text" id="puzzlename" name="name">
+            <br><br>
+            <label for="desc">Description:</label>
+            <input type="text" id="description" name="desc">
+            <br><br>
+            <label for="season">Season:</label>
+            <input type="number" id="season" name="season" min="1" value="2">
+            <br><br>
+            <a>Add Goals</a>
+		<button onclick="removeField()">-</button>
+		<button onclick="addField()">+</button><br>
+            <div id="goals">
+            
+    </div>
+    
+<label for="hold">Hold Disabled:</label>
+  <input checked type="checkbox" id="hold" name="hold" value="true">
+  <br><br>
+  <label for="4wide">4wide pc:</label>
+  <input type="checkbox" id="4wide" name="4wide" value="true">
+    <datalist id="keys">
+        <option value="lines_cleared" selected>
+        <option value="lines_sent">
+        <option value="single">
+        <option value="double">
+        <option value="triple">
+        <option value="tetris">
+        <option value="tspin">
+        <option value="tspin_single">
+        <option value="tspin_double">
+        <option value="tspin_triple">
+        <option value="mini_tspin">
+        <option value="mini_tspin_single">
+        <option value="mini_tspin_double">
+        <option value="b2b">
+        <option value="pc">
+        <option value="combo">
+    </datalist>
+    <br><br>
+            <label for="difficulty">Select Difficulty:</label>
+    <select id="difficulty" name="difficulty">
+        <option value="easy" selected>Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+    <br>
+            <br>
+            <button type="button" name="button" class="createButton" id="export" style="display: inline-block;" onclick="createPuzzle()">Export Puzzle</button>
+
+        </div>
+        <div class="test-board">
+            <canvas tabindex='1' id="tetris" class="contrls" width="504" height="604"></canvas>
+        </div>
+        <div class = "right">
+            <form class="paint-bucket" name="paintbucket">
+                <label for="X">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="X" value=8 checked />
+                    <span></span>
+                </label>
+                <label for="I">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="I" value=5 />
+                    <span></span>
+                </label>
+                <label for="J">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="J" value=6 />
+                    <span></span>
+                </label>
+                <label for="S">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="S" value=4 />
+                    <span></span>
+                </label>
+                <label for="O">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="O" value=3 />
+                    <span></span>
+                </label>
+                <label for="Z">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="Z" value=1 />
+                    <span></span>
+                </label>
+                <label for="L">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="L" value=2 />
+                    <span></span>
+                </label>
+                <label for="T">
+                    <input type="radio" name="paintbucket" class="paintbucket" id="T" value=7 />
+                    <span></span>
+                </label>
+            </form>
+            <button type="button" class="createButton" onclick="this.blur(); importImageButton()">Import from Image</button>
+        </div>
+        
+        
+    </div>
+    
+<script src="./index.js"></script>
+<script src="./create_puzzle.js" difficulty="test" setup="controls" id="gameCode"></script>
+</body>
+
+</html>
